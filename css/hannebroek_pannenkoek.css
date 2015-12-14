@@ -130,8 +130,6 @@ div#keuze div {
     background-repeat: no-repeat;
 }
 
-
-
 div#inhoud {
     width: 700px;
     height: auto;
@@ -140,7 +138,6 @@ div#inhoud {
 
 }
 div#inhoud div {
-    height: 100%;
     margin-right: 50px;
     margin-left: 50px;
     width: 550px;
@@ -333,7 +330,7 @@ div#rechts a:hover, div#rechts a:active{
     text-decoration: underline;
     font-weight: normal;
 }
-div#rechts #kop_rechts1, div#rechts #kop_rechts2, div#rechts #kop_rechts3, div#rechts #kop_rechts4, #kop_rechts5 {
+div#rechts #kop_rechts1, div#rechts #kop_rechts2, div#rechts #kop_rechts3, div#rechts #kop_rechts4, div#rechts #kop_rechts5{
     font-size: 14px;
     width: 300px;
     color: #1f497d;
@@ -341,7 +338,7 @@ div#rechts #kop_rechts1, div#rechts #kop_rechts2, div#rechts #kop_rechts3, div#r
     font-style: italic;
     background-color: #2a382f;
 }
-div#rechts #kop_rechts1 div, div#rechts #kop_rechts2 div, div#rechts #kop_rechts3 div, div#rechts #kop_rechts4 div, #kop_rechts5{
+div#rechts #kop_rechts1 div, div#rechts #kop_rechts2 div, div#rechts #kop_rechts3 div, div#rechts #kop_rechts4 div, div#rechts #kop_rechts5 div{
     padding:12px;
     font-size: 14px;
     font-weight: bold;
@@ -487,8 +484,6 @@ a.postit_tekst:hover,a.postit_tekst:active {
     color: #000000;
     margin-top: 12px;
 }
-
-
 
 div#pdf_download {
     margin-top: 24px;
