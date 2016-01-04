@@ -72,188 +72,19 @@
           is gevestigd op:
         </p>
         <p>
-          <ul>
-            <li>Hoevestraat 12</li>
-            <li>4903 RR Oosterhout</li>
-          </ul>
+        <ul>
+          <li>Hoevestraat 12</li>
+          <li>4903 RR Oosterhout</li>
+        </ul>
         </p>
         <p>
           Het pannekoeckenhuys-restaurant is gelegen aan de
           rand van de Boswachterij Dorst.
         </p>
       </article>
-      <span class="reservation-warning">
-        Let op! Uw reservering wordt pas definitief als u een e-mail ontvangt met daarin dat de reservering is goedgekeurd.
+      <span class="thank-you">
+        Hartelijk dank voor uw reservering. U ontvangt z.s.m. per e-mail bericht van ons of uw reservering akkoord is.
       </span>
-      <form action="summary.php" method="POST">
-        <span class="personal-info">
-          <h3>Persoonlijke gegevens</h3>
-          <label>(* = verplicht)</label>
-          <label for="name">Naam*:</label>
-          <input type="text" name="naam">
-          <label for="email">E-mail adres*:</label>
-          <input type="email" name="email">
-          <label for="phone">Telefoonnummer*:</label>
-          <input type="number" name="naam">
-          <label for="anti-spam">Anti-SPAM; Geef antwoord op deze som*:</label>
-          <span>7+8=</span><input type="number" name="naam">
-        </span>
-        <span class="form-reservation">
-          <h3>Reservering</h3>
-          <label for="date">Datum*:</label>
-          <span class="calender">
-            <span class="month-container">
-              <span><</span>
-              <span class="month">december 2015</span>
-              <span>></span>
-            </span>
-            <table class="date">
-              <thead>
-              <tr>
-                <th>ma</th>
-                <th>di</th>
-                <th>wo</th>
-                <th>do</th>
-                <th>vr</th>
-                <th>za</th>
-                <th>zo</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <td></td>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td class="available">5</td>
-                <td>6</td>
-              </tr>
-              <tr>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
-                <td>10</td>
-                <td>11</td>
-                <td class="available">12</td>
-                <td>13</td>
-              </tr>
-              <tr>
-                <td>14</td>
-                <td>15</td>
-                <td>16</td>
-                <td>17</td>
-                <td>18</td>
-                <td class="selected">19</td>
-                <td>20</td>
-              </tr>
-              <tr>
-                <td>21</td>
-                <td>22</td>
-                <td>23</td>
-                <td>24</td>
-                <td>25</td>
-                <td class="unavailable">26</td>
-                <td>27</td>
-              </tr>
-              <tr>
-                <td>28</td>
-                <td>29</td>
-                <td>30</td>
-                <td>31</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              </tbody>
-            </table>
-          </span>
-          <label for="time">Tijd*:</label>
-          <table class="time">
-            <tbody>
-              <tr>
-                <td class="available">11:00</td>
-                <td class="available">11:30</td>
-                <td class="available">12:00</td>
-                <td class="available">12:30</td>
-                <td class="unavailable">13:00</td>
-              </tr>
-              <tr>
-                <td class="unavailable">13:30</td>
-                <td class="available">14:00</td>
-                <td class="available">14:30</td>
-                <td class="available">15:00</td>
-                <td class="available">15:30</td>
-              </tr>
-              <tr>
-                <td class="available">16:00</td>
-                <td class="available">16:30</td>
-                <td class="selected">17:00</td>
-                <td class="unavailable">17:30</td>
-                <td class="available">18:00</td>
-              </tr>
-              <tr>
-                <td class="available">18:30</td>
-                <td class="available">19:00</td>
-              </tr>
-            </tbody>
-          </table>
-          <span class="legend">
-            <ul>
-              <li>
-                <span class="legend-green available"></span> = beschikbaar
-              </li>
-              <li>
-                <span class="legend-red unavailable"></span> = niet beschikbaar
-              </li>
-              <li>
-                <span class="legend-blue selected"></span> = uw selectie
-              </li>
-            </ul>
-          </span>
-          <label for="persons">Aantal personen*:</label>
-          <select name="persons" id="persons">
-            <option value="1 persoon">1 persoon</option>
-            <option value="2 personen">2 personen</option>
-            <option value="3 personen">3 personen</option>
-            <option value="4 personen">4 personen</option>
-            <option value="5 personen">5 personen</option>
-            <option value="6 personen">6 personen</option>
-            <option value="7 personen">7 personen</option>
-            <option value="8 personen">8 personen</option>
-            <option value="9 personen">9 personen</option>
-            <option value="10 personen">10 personen</option>
-            <option value="11 personen">11 personen</option>
-            <option value="12 personen">12 personen</option>
-          </select>
-          <h3>Extra informatie</h3>
-          <label for="kids10">Aantal kinderen tot 10 jaar</label>
-          <select name="kids10" id="kids10">
-            <option value="Geen">Geen</option>
-            <option value="1 kind">1 kind</option>
-            <option value="2 kinderen">2 kinderen</option>
-            <option value="3 kinderen">3 kinderen</option>
-            <option value="4 kinderen">4 kinderen</option>
-            <option value="5 kinderen">5 kinderen</option>
-            <option value="6 kinderen">6 kinderen</option>
-            <option value="7 kinderen">7 kinderen</option>
-            <option value="8 kinderen">8 kinderen</option>
-            <option value="9 kinderen">9 kinderen</option>
-            <option value="10 kinderen">10 kinderen</option>
-            <option value="11 kinderen">11 kinderen</option>
-          </select>
-          <input type="submit" value="Volgende" class="send-button" >
-        </span>
-      </form>
     </div>
   </div>
   <div id="rechts">
@@ -312,10 +143,7 @@
       <a href="contact.php" title="Contact bij Pannekoeckenhuys Restaurant De Hannebroeck ">Contact</a>&nbsp;|&nbsp;
       <a href="http://www.camping-chaletpark-dehannebroeck.nl/" title="Chaletpark bij Pannekoeckenhuys Restaurant De Hannebroeck ">Chaletpark</a>&nbsp;|&nbsp;
     </div></div>
-
 </div>
-
-
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
     $("a[rel^='prettyPhoto']").prettyPhoto();
