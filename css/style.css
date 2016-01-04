@@ -199,6 +199,10 @@ select{
     width: 31%;
 }
 
+input {
+    padding: 0.2em;
+}
+
 .send-button, .cancel{
     padding: 10px;
     border: none;
@@ -213,4 +217,15 @@ select{
 .cancel{
     background-color: #666;
     float: left;
+}
+
+.month{
+    display:inline-block;
+    width:20px;
+    height:20px;
+    color:white;
+}
+
+.month:hover{
+    cursor: pointer;
 }
