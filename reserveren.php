@@ -1,3 +1,4 @@
+<?php require_once "includes/initialize.php"?>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
   <title>Pannekoeckenhuys Restaurant De Hannebroeck </title>
   <meta name="Description" lang="nl" content="Landgoed De Hannebroeck is gelegen aan de rand van de Boswachterij Dorst en bestaat uit een Pannekoeckenhuys-Restaurant en een Chaletpark.">
@@ -86,6 +87,18 @@
       <span class="reservation-warning">
         Let op! Uw reservering wordt pas definitief als u een e-mail ontvangt met daarin dat de reservering is goedgekeurd.
       </span>
+      <?php if(isset($errors)): ?>
+        <ul class="errors">
+          <?php foreach ($errors as $error):?>
+            <li><?= $error;?></li>
+          <?php endforeach; ?>
+        </ul>
+      <?php endif; ?>
+
+      <?php if (isset($success)) { ?>
+        <p class="success"><?= $success; ?></p>
+      <?php } ?>
+
       <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="POST">
         <span class="personal-info">
           <h3>Persoonlijke gegevens</h3>
