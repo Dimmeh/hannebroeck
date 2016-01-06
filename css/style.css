@@ -77,6 +77,10 @@ article p{
     color: white;
 }
 
+input[type="date"] {
+    float: left;
+}
+
 .month-container{
     display: block;
     background-color: #2a382f;
@@ -223,9 +227,19 @@ input {
     display:inline-block;
     width:20px;
     height:20px;
-    color:white;
+}
+
+a.prev-month, a.next-month{
+    color:white!important;
 }
 
 .month:hover{
     cursor: pointer;
+}
+
+section.calender-container {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    /* height: 277px; */
 }

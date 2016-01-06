@@ -22,6 +22,13 @@ if ($next_month == 13 ) {
     $next_month = 1;
     $next_year = $cYear + 1;
 }
+
+$first_day = mktime(0,0,0, $cMonth, 1, $cYear);
+
+$title = date('F', $first_day);
+
+$day_of_week = date('D', $first_day);
+
 switch($day_of_week){
     case "Sun":
         $blank = 0;
@@ -53,14 +60,14 @@ $day_count = 1;
 ?>
 
 <span class="month-container">
-      <span class="month">
-          <a href="<?php echo $_SERVER["PHP_SELF"] . "?month=". $prev_month . "&year=" . $prev_year; ?>"><</a>
+      <span>
+          <a  class="prev-month" href="<?php echo $_SERVER["PHP_SELF"] . "?month=". $prev_month . "&year=" . $prev_year; ?>"><</a>
       </span>
-      <span class="month">
+      <span>
           <?= $monthNames[$cMonth-1].' '.$cYear; ?>
       </span>
-      <span class="month">
-          <a href="<?php echo $_SERVER["PHP_SELF"] . "?month=". $next_month . "&year=" . $next_year; ?>">></a>
+      <span>
+          <a class="next-month" href="<?php echo $_SERVER["PHP_SELF"] . "?month=". $next_month . "&year=" . $next_year; ?>">></a>
       </span>
     </span>
 <table class="date">
@@ -76,14 +83,14 @@ $day_count = 1;
     </tr>
     </thead>
     <tbody>
+<!--        --><?php
+//            while($blank > 0){
+//        ?>
+<!--            <td></td>-->
         <?php
-            while($blank > 0){
-        ?>
-            <td></td>
-        <?php
-            $blank = $blank-1.5;
-            $day_count++;
-            }
+//            $blank = $blank-1.5;
+//            $day_count++;
+//            }
 
             $timestamp = mktime(0,0,0,$cMonth,1,$cYear);
             $maxday = date("t",$timestamp);
@@ -92,7 +99,7 @@ $day_count = 1;
             for ($i=0; $i<($maxday+$startday); $i++) {
                 if(($i % 7) == 0 ) echo "<tr>";
                 if($i < $startday) echo "<td></td>";
-                else echo "<td>". ($i - $startday + 1) . "</td>";
+                else echo "<td name='$i-$cMonth-$cYear'>". ($i - $startday + 1) . "</td>";
                 if(($i % 7) == 6 ) echo "</tr>";
             }
         ?>

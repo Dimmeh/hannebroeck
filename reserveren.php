@@ -13,6 +13,7 @@
   <link href="css/menu_style.css" rel="stylesheet" type="text/css" media="all">
   <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
   <link rel="stylesheet" href="./css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8">
+  <link href="includes/calender/styles/glDatePicker.default.css" rel="stylesheet" type="text/css">
   <script src="js/jquery-1.4.4.min.js" type="text/javascript" charset="utf-8"></script><style type="text/css"></style>
   <script src="js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
 </head>
@@ -56,7 +57,7 @@
     </div>
   </div>
   <div id="inhoud">
-    <div class="reservation">
+    < class="reservation">
       <h1>Reserveren</h1>
       <article>
         <p>
@@ -85,99 +86,91 @@
       <span class="reservation-warning">
         Let op! Uw reservering wordt pas definitief als u een e-mail ontvangt met daarin dat de reservering is goedgekeurd.
       </span>
-      <form action="summary.php" method="POST">
+      <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="POST">
         <span class="personal-info">
           <h3>Persoonlijke gegevens</h3>
           <label>(* = verplicht)</label>
-          <label for="name">Naam*:</label>
-          <input type="text" name="naam">
-          <label for="email">E-mail adres*:</label>
-          <input type="email" name="email">
-          <label for="phone">Telefoonnummer*:</label>
-          <input type="number" name="naam">
-          <label for="anti-spam">Anti-SPAM; Geef antwoord op deze som*:</label>
-          <span>7+8=</span><input type="number" name="naam">
+          <div class="data-field">
+            <label for="name">Naam*:</label>
+            <input type="text" name="<?= $customer->name; ?>">
+          </div>
+          <div class="data-field">
+            <label for="email">E-mail adres*:</label>
+            <input type="email" name="<?= $customer->email; ?>">
+          </div>
+          <div class="data-field">
+            <label for="phone">Telefoonnummer*:</label>
+            <input type="number" name="<?= $customer->phone; ?>">
+          </div>
+          <div class="data-field">
+            <label for="anti-spam">Anti-SPAM; Geef antwoord op deze som*:</label>
+            <span>7+8=</span><input type="number" name="antwoord">
+          </div>
         </span>
         <span class="form-reservation">
           <h3>Reservering</h3>
-          <label for="date">Datum*:</label>
-          <span class="calender">
-            <?= require_once('includes/calender.php'); ?>
-          </span>
-          <label for="time">Tijd*:</label>
-          <table class="time">
-            <tbody>
-              <tr>
-                <td class="available">11:00</td>
-                <td class="available">11:30</td>
-                <td class="available">12:00</td>
-                <td class="available">12:30</td>
-                <td class="unavailable">13:00</td>
-              </tr>
-              <tr>
-                <td class="unavailable">13:30</td>
-                <td class="available">14:00</td>
-                <td class="available">14:30</td>
-                <td class="available">15:00</td>
-                <td class="available">15:30</td>
-              </tr>
-              <tr>
-                <td class="available">16:00</td>
-                <td class="available">16:30</td>
-                <td class="selected">17:00</td>
-                <td class="unavailable">17:30</td>
-                <td class="available">18:00</td>
-              </tr>
-              <tr>
-                <td class="available">18:30</td>
-                <td class="available">19:00</td>
-              </tr>
-            </tbody>
-          </table>
-          <span class="legend">
-            <ul>
-              <li>
-                <span class="legend-green available"></span> = beschikbaar
-              </li>
-              <li>
-                <span class="legend-red unavailable"></span> = niet beschikbaar
-              </li>
-              <li>
-                <span class="legend-blue selected"></span> = uw selectie
-              </li>
-            </ul>
-          </span>
-          <label for="persons">Aantal personen*:</label>
-          <select name="persons" id="persons">
-            <option value="1 persoon">1 persoon</option>
-            <option value="2 personen">2 personen</option>
-            <option value="3 personen">3 personen</option>
-            <option value="4 personen">4 personen</option>
-            <option value="5 personen">5 personen</option>
-            <option value="6 personen">6 personen</option>
-            <option value="7 personen">7 personen</option>
-            <option value="8 personen">8 personen</option>
-            <option value="9 personen">9 personen</option>
-            <option value="10 personen">10 personen</option>
-            <option value="11 personen">11 personen</option>
-            <option value="12 personen">12 personen</option>
-          </select>
+          <div class="data-field">
+            <label for="date">Datum*:</label>
+            <section class="calender-container">
+              <span class="calender" id="mydate">
+  <!--              <div gldp-el="mydate"  style="height:50px; width:200px; position:absolute; top:70px; left:100px;"></div>-->
+                <?//= require_once('includes/calender.php'); ?>
+                <input type="date" name="<?= $customer->date; ?>" />
+              </span>
+            </section>
+          </div>
+          <div class="data-field">
+            <label for="time">Tijd*:</label>
+            <input type="time" naam="<?= $customer->time; ?>" />
+<!--          <span class="legend">-->
+<!--            <ul>-->
+<!--              <li>-->
+<!--                <span class="legend-green available"></span> = beschikbaar-->
+<!--              </li>-->
+<!--              <li>-->
+<!--                <span class="legend-red unavailable"></span> = niet beschikbaar-->
+<!--              </li>-->
+<!--              <li>-->
+<!--                <span class="legend-blue selected"></span> = uw selectie-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--          </span>-->
+          </div>
+          <div class="data-field">
+            <label for="persons">Aantal personen*:</label>
+            <select name="persons" id="persons">
+              <option value="<?= $customer->persons; ?>">1 persoon</option>
+              <option value="<?= $customer->persons; ?>">2 personen</option>
+              <option value="<?= $customer->persons; ?>">3 personen</option>
+              <option value="<?= $customer->persons; ?>">4 personen</option>
+              <option value="<?= $customer->persons; ?>">5 personen</option>
+              <option value="<?= $customer->persons; ?>">6 personen</option>
+              <option value="<?= $customer->persons; ?>">7 personen</option>
+              <option value="<?= $customer->persons; ?>">8 personen</option>
+              <option value="<?= $customer->persons; ?>">9 personen</option>
+              <option value="<?= $customer->persons; ?>">10 personen</option>
+              <option value="<?= $customer->persons; ?>">11 personen</option>
+              <option value="<?= $customer->persons; ?>">12 personen</option>
+            </select>
+          </div>
           <h3>Extra informatie</h3>
-          <label for="kids10">Aantal kinderen tot 10 jaar</label>
-          <select name="kids10" id="kids10">
-            <option value="Geen">Geen</option>
-            <option value="1 kind">1 kind</option>
-            <option value="2 kinderen">2 kinderen</option>
-            <option value="3 kinderen">3 kinderen</option>
-            <option value="4 kinderen">4 kinderen</option>
-            <option value="5 kinderen">5 kinderen</option>
-            <option value="6 kinderen">6 kinderen</option>
-            <option value="7 kinderen">7 kinderen</option>
-            <option value="8 kinderen">8 kinderen</option>
-            <option value="9 kinderen">9 kinderen</option>
-            <option value="10 kinderen">10 kinderen</option>
-            <option value="11 kinderen">11 kinderen</option>
-          </select>
+          <div class="data-field">
+            <label for="kids10">Aantal kinderen tot 10 jaar</label>
+            <select name="kids10" id="kids10">
+              <option value="<?= $customer->children; ?>">Geen</option>
+              <option value="<?= $customer->children; ?>">1 kind</option>
+              <option value="<?= $customer->children; ?>">2 kinderen</option>
+              <option value="<?= $customer->children; ?>">3 kinderen</option>
+              <option value="<?= $customer->children; ?>">4 kinderen</option>
+              <option value="<?= $customer->children; ?>">5 kinderen</option>
+              <option value="<?= $customer->children; ?>">6 kinderen</option>
+              <option value="<?= $customer->children; ?>">7 kinderen</option>
+              <option value="<?= $customer->children; ?>">8 kinderen</option>
+              <option value="<?= $customer->children; ?>">9 kinderen</option>
+              <option value="<?= $customer->children; ?>">10 kinderen</option>
+              <option value="<?= $customer->children; ?>">11 kinderen</option>
+            </select>
+          </div>
           <input type="submit" value="Volgende" class="send-button" >
         </span>
       </form>
@@ -242,14 +235,44 @@
 
 </div>
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="includes/calender/glDatePicker.min.js"></script>
+
+<script type="text/javascript">
+//  $(window).load(function()
+//  {
+//    var today = new Date();
+//    var dd = today.getDate();
+//    var mm = today.getMonth()+1; //January is 0!
+//    var yyyy = today.getFullYear();
+//
+//    if(dd<10) {
+//      dd='0'+dd
+//    }
+//
+//    if(mm<10) {
+//      mm='0'+mm
+//    }
+//
+//    today = mm+'/'+dd+'/'+yyyy;
+//    $('#mydate').glDatePicker(
+//      {
+//        showAlways: true,
+//        allowMonthSelect: true,
+//        allowYearSelect: false,
+//        prevArrow: '<',
+//        nextArrow: '>',
+//        selectableDOW: [6],
+//        dowOffset: 1
+//      }
+//  });
+</script>
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
     $("a[rel^='prettyPhoto']").prettyPhoto();
   });
 </script>
-
-
 
 </body>
 </html>
