@@ -1,4 +1,3 @@
-<?php require_once "includes/initialize.php"?>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
   <title>Pannekoeckenhuys Restaurant De Hannebroeck </title>
   <meta name="Description" lang="nl" content="Landgoed De Hannebroeck is gelegen aan de rand van de Boswachterij Dorst en bestaat uit een Pannekoeckenhuys-Restaurant en een Chaletpark.">
@@ -58,7 +57,7 @@
     </div>
   </div>
   <div id="inhoud">
-    < class="reservation">
+    <div class="reservation">
       <h1>Reserveren</h1>
       <article>
         <p>
@@ -87,54 +86,31 @@
       <span class="reservation-warning">
         Let op! Uw reservering wordt pas definitief als u een e-mail ontvangt met daarin dat de reservering is goedgekeurd.
       </span>
-      <?php if(isset($errors)): ?>
-        <ul class="errors">
-          <?php foreach ($errors as $error):?>
-            <li><?= $error;?></li>
-          <?php endforeach; ?>
-        </ul>
-      <?php endif; ?>
-
-      <?php if (isset($success)) { ?>
-        <p class="success"><?= $success; ?></p>
-      <?php } ?>
-
-      <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="POST">
+      <form action="includes/oldfasion/add.php" method="POST">
         <span class="personal-info">
           <h3>Persoonlijke gegevens</h3>
           <label>(* = verplicht)</label>
-          <div class="data-field">
             <label for="name">Naam*:</label>
-            <input type="text" name="<?= $customer->name; ?>">
-          </div>
-          <div class="data-field">
+            <input type="text" name="name">
             <label for="email">E-mail adres*:</label>
-            <input type="email" name="<?= $customer->email; ?>">
-          </div>
-          <div class="data-field">
+            <input type="email" name="email">
             <label for="phone">Telefoonnummer*:</label>
-            <input type="number" name="<?= $customer->phone; ?>">
-          </div>
-          <div class="data-field">
+            <input type="number" name="phone">
             <label for="anti-spam">Anti-SPAM; Geef antwoord op deze som*:</label>
-            <span>7+8=</span><input type="number" name="antwoord">
-          </div>
+            <span>7+8=</span><input type="number" name="answer">
         </span>
         <span class="form-reservation">
           <h3>Reservering</h3>
-          <div class="data-field">
             <label for="date">Datum*:</label>
             <section class="calender-container">
               <span class="calender" id="mydate">
   <!--              <div gldp-el="mydate"  style="height:50px; width:200px; position:absolute; top:70px; left:100px;"></div>-->
                 <?//= require_once('includes/calender.php'); ?>
-                <input type="date" name="<?= $customer->date; ?>" />
+                <input type="date" name="date" />
               </span>
             </section>
-          </div>
-          <div class="data-field">
             <label for="time">Tijd*:</label>
-            <input type="time" naam="<?= $customer->time; ?>" />
+            <input type="time" name="res-time" />
 <!--          <span class="legend">-->
 <!--            <ul>-->
 <!--              <li>-->
@@ -148,42 +124,37 @@
 <!--              </li>-->
 <!--            </ul>-->
 <!--          </span>-->
-          </div>
-          <div class="data-field">
             <label for="persons">Aantal personen*:</label>
             <select name="persons" id="persons">
-              <option value="<?= $customer->persons; ?>">1 persoon</option>
-              <option value="<?= $customer->persons; ?>">2 personen</option>
-              <option value="<?= $customer->persons; ?>">3 personen</option>
-              <option value="<?= $customer->persons; ?>">4 personen</option>
-              <option value="<?= $customer->persons; ?>">5 personen</option>
-              <option value="<?= $customer->persons; ?>">6 personen</option>
-              <option value="<?= $customer->persons; ?>">7 personen</option>
-              <option value="<?= $customer->persons; ?>">8 personen</option>
-              <option value="<?= $customer->persons; ?>">9 personen</option>
-              <option value="<?= $customer->persons; ?>">10 personen</option>
-              <option value="<?= $customer->persons; ?>">11 personen</option>
-              <option value="<?= $customer->persons; ?>">12 personen</option>
+              <option value="1 persoon">1 persoon</option>
+              <option value="2 personen">2 personen</option>
+              <option value="3 personen">3 personen</option>
+              <option value="4 personen">4 personen</option>
+              <option value="5 personen">5 personen</option>
+              <option value="6 personen">6 personen</option>
+              <option value="7 personen">7 personen</option>
+              <option value="8 personen">8 personen</option>
+              <option value="9 personen">9 personen</option>
+              <option value="10 personen">10 personen</option>
+              <option value="11 personen">11 personen</option>
+              <option value="12 personen">12 personen</option>
             </select>
-          </div>
           <h3>Extra informatie</h3>
-          <div class="data-field">
             <label for="kids10">Aantal kinderen tot 10 jaar</label>
-            <select name="kids10" id="kids10">
-              <option value="<?= $customer->children; ?>">Geen</option>
-              <option value="<?= $customer->children; ?>">1 kind</option>
-              <option value="<?= $customer->children; ?>">2 kinderen</option>
-              <option value="<?= $customer->children; ?>">3 kinderen</option>
-              <option value="<?= $customer->children; ?>">4 kinderen</option>
-              <option value="<?= $customer->children; ?>">5 kinderen</option>
-              <option value="<?= $customer->children; ?>">6 kinderen</option>
-              <option value="<?= $customer->children; ?>">7 kinderen</option>
-              <option value="<?= $customer->children; ?>">8 kinderen</option>
-              <option value="<?= $customer->children; ?>">9 kinderen</option>
-              <option value="<?= $customer->children; ?>">10 kinderen</option>
-              <option value="<?= $customer->children; ?>">11 kinderen</option>
+            <select name="children" id="kids10">
+              <option value="geen">Geen</option>
+              <option value="1 kind">1 kind</option>
+              <option value="2 kinderen">2 kinderen</option>
+              <option value="3 kinderen">3 kinderen</option>
+              <option value="4 kinderen">4 kinderen</option>
+              <option value="5 kinderen">5 kinderen</option>
+              <option value="6 kinderen">6 kinderen</option>
+              <option value="7 kinderen">7 kinderen</option>
+              <option value="8 kinderen">8 kinderen</option>
+              <option value="9 kinderen">9 kinderen</option>
+              <option value="10 kinderen">10 kinderen</option>
+              <option value="11 kinderen">11 kinderen</option>
             </select>
-          </div>
           <input type="submit" value="Volgende" class="send-button" >
         </span>
       </form>

@@ -6,7 +6,7 @@
  * Time: 15:02
  */
 
-require_once'includes/config.php';
+require_once 'includes/config.php';
 
 if(isset($_POST['submit'])){
     $username = mysqli_real_escape_string($db, $_POST['username']);
