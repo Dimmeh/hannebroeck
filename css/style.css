@@ -1,4 +1,8 @@
 /*  Content reservation  */
+*{
+    margin: 0 auto;
+    padding: 0;
+}
 
 article {
     float: left;
@@ -27,8 +31,7 @@ article p{
 /*  Reservation form  */
 
 .reservation form {
-    height: 100%;
-    margin-bottom: 3em;
+    height: 403px;
 }
 
 /*  Reservation form | Personal info  */
@@ -57,9 +60,9 @@ article p{
     display:inline-block;
 }
 
-.personal-info input:last-child{
-    width:20%;
-}
+/*.personal-info input:last-child{*/
+/*width:20%;*/
+/*}*/
 
 /*  Reservation form | Reservation  */
 
@@ -182,6 +185,7 @@ select{
 #kids10 {
     display: block;
     margin-bottom: 1em;
+    float: left;
 }
 
 .overview span ul li {
@@ -205,6 +209,10 @@ select{
 
 input {
     padding: 0.2em;
+}
+
+input#date{
+    float:left;
 }
 
 .send-button, .cancel{
@@ -241,5 +249,69 @@ section.calender-container {
     display: inline-block;
     width: 100%;
     position: relative;
-    /* height: 277px; */
 }
+
+/*    Admin panel   */
+
+.container{
+    height: auto;
+    height: 100%;
+    min-height: 100%;
+    width:1250px;
+    background: white;
+}
+
+.container main{
+    width:100%;
+    display: inline-block;
+}
+
+.header-admin{
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.header-admin img{
+    width: 100%;
+}
+
+.reservation-display h3{
+    display: inline-block;
+    float:left;
+    margin-bottom: 0.5em;
+}
+
+.add{
+    float:right;
+    vertical-align: top;
+    padding:0.5em;
+    background: #2a382f;
+    color: white;
+    border: none;
+}
+
+.reservation-display{
+    width: 65%;
+    float: left;
+}
+
+.summary-reservations{
+    float:left;
+    width: 100%;
+    text-align: center;
+}
+
+.summary-reservations tr th, .summary-reservations tr td{
+    padding: 0.5em 0;
+}
+
+.summary-reservations tbody tr:nth-child(2n+1){
+    background-color:rgb(218, 218, 218);
+}
+
+.sidebar{
+    float:right;
+    width:30%;
+}
+
+

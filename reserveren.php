@@ -1,3 +1,8 @@
+<?php
+//  error_reporting(E_ALL & ~E_NOTICE);
+  session_start();
+  require_once "includes/oldfasion/add.php";
+?>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
   <title>Pannekoeckenhuys Restaurant De Hannebroeck </title>
   <meta name="Description" lang="nl" content="Landgoed De Hannebroeck is gelegen aan de rand van de Boswachterij Dorst en bestaat uit een Pannekoeckenhuys-Restaurant en een Chaletpark.">
@@ -12,8 +17,10 @@
   <link href="css/hannebroek_pannenkoek.css" rel="stylesheet" type="text/css" media="all">
   <link href="css/menu_style.css" rel="stylesheet" type="text/css" media="all">
   <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+  <link rel="stylesheet" href="js/jquery-ui-1.11.4.custom/jquery-ui.min.css">
+  <link rel="stylesheet" href="js/jquery-ui-1.11.4.custom/jquery-ui.structure.min.css">
+  <link rel="stylesheet" href="js/jquery-ui-1.11.4.custom/jquery-ui.theme.min.css">
   <link rel="stylesheet" href="./css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8">
-  <link href="includes/calender/styles/glDatePicker.default.css" rel="stylesheet" type="text/css">
   <script src="js/jquery-1.4.4.min.js" type="text/javascript" charset="utf-8"></script><style type="text/css"></style>
   <script src="js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
 </head>
@@ -86,7 +93,13 @@
       <span class="reservation-warning">
         Let op! Uw reservering wordt pas definitief als u een e-mail ontvangt met daarin dat de reservering is goedgekeurd.
       </span>
-      <form action="includes/oldfasion/add.php" method="POST">
+      <?php foreach($errors as $error) : ?>
+      <span class="error">
+        <p><?=$error; ?></p>
+      </span>
+      <?php endforeach;?>
+
+      <form action="reserveren.php" method="POST">
         <span class="personal-info">
           <h3>Persoonlijke gegevens</h3>
           <label>(* = verplicht)</label>
@@ -95,22 +108,20 @@
             <label for="email">E-mail adres*:</label>
             <input type="email" name="email">
             <label for="phone">Telefoonnummer*:</label>
-            <input type="number" name="phone">
-            <label for="anti-spam">Anti-SPAM; Geef antwoord op deze som*:</label>
-            <span>7+8=</span><input type="number" name="answer">
+            <input type="text" name="phone">
+<!--            <label for="anti-spam">Anti-SPAM; Geef antwoord op deze som*:</label>-->
+<!--            <span>--><?//= $a; ?><!-- + --><?//= $b; ?><!-- = </span><input type="number" name="answer" min="0">-->
         </span>
         <span class="form-reservation">
           <h3>Reservering</h3>
             <label for="date">Datum*:</label>
             <section class="calender-container">
               <span class="calender" id="mydate">
-  <!--              <div gldp-el="mydate"  style="height:50px; width:200px; position:absolute; top:70px; left:100px;"></div>-->
-                <?//= require_once('includes/calender.php'); ?>
-                <input type="date" name="date" />
+                <input type="text" size="8" name="date" id="date"/>
               </span>
             </section>
             <label for="time">Tijd*:</label>
-            <input type="time" name="res-time" />
+            <input type="time" name="res-time" min="11:00" max="19:00" step="1800" />
 <!--          <span class="legend">-->
 <!--            <ul>-->
 <!--              <li>-->
@@ -126,36 +137,37 @@
 <!--          </span>-->
             <label for="persons">Aantal personen*:</label>
             <select name="persons" id="persons">
-              <option value="1 persoon">1 persoon</option>
-              <option value="2 personen">2 personen</option>
-              <option value="3 personen">3 personen</option>
-              <option value="4 personen">4 personen</option>
-              <option value="5 personen">5 personen</option>
-              <option value="6 personen">6 personen</option>
-              <option value="7 personen">7 personen</option>
-              <option value="8 personen">8 personen</option>
-              <option value="9 personen">9 personen</option>
-              <option value="10 personen">10 personen</option>
-              <option value="11 personen">11 personen</option>
-              <option value="12 personen">12 personen</option>
+              <option value="1">1 persoon</option>
+              <option value="2">2 personen</option>
+              <option value="3">3 personen</option>
+              <option value="4">4 personen</option>
+              <option value="5">5 personen</option>
+              <option value="6">6 personen</option>
+              <option value="7">7 personen</option>
+              <option value="8">8 personen</option>
+              <option value="9">9 personen</option>
+              <option value="10">10 personen</option>
+              <option value="11">11 personen</option>
+              <option value="12">12 personen</option>
             </select>
           <h3>Extra informatie</h3>
             <label for="kids10">Aantal kinderen tot 10 jaar</label>
             <select name="children" id="kids10">
-              <option value="geen">Geen</option>
-              <option value="1 kind">1 kind</option>
-              <option value="2 kinderen">2 kinderen</option>
-              <option value="3 kinderen">3 kinderen</option>
-              <option value="4 kinderen">4 kinderen</option>
-              <option value="5 kinderen">5 kinderen</option>
-              <option value="6 kinderen">6 kinderen</option>
-              <option value="7 kinderen">7 kinderen</option>
-              <option value="8 kinderen">8 kinderen</option>
-              <option value="9 kinderen">9 kinderen</option>
-              <option value="10 kinderen">10 kinderen</option>
-              <option value="11 kinderen">11 kinderen</option>
+              <option value="0">Geen</option>
+              <option value="1">1 kind</option>
+              <option value="2">2 kinderen</option>
+              <option value="3">3 kinderen</option>
+              <option value="4">4 kinderen</option>
+              <option value="5">5 kinderen</option>
+              <option value="6">6 kinderen</option>
+              <option value="7">7 kinderen</option>
+              <option value="8">8 kinderen</option>
+              <option value="9">9 kinderen</option>
+              <option value="10">10 kinderen</option>
+              <option value="11">11 kinderen</option>
             </select>
-          <input type="submit" value="Volgende" class="send-button" >
+          <div class="clear"></div>
+          <input type="submit" value="Volgende" name="submit" class="send-button" >
         </span>
       </form>
     </div>
@@ -219,38 +231,9 @@
 
 </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="includes/calender/glDatePicker.min.js"></script>
-
-<script type="text/javascript">
-//  $(window).load(function()
-//  {
-//    var today = new Date();
-//    var dd = today.getDate();
-//    var mm = today.getMonth()+1; //January is 0!
-//    var yyyy = today.getFullYear();
-//
-//    if(dd<10) {
-//      dd='0'+dd
-//    }
-//
-//    if(mm<10) {
-//      mm='0'+mm
-//    }
-//
-//    today = mm+'/'+dd+'/'+yyyy;
-//    $('#mydate').glDatePicker(
-//      {
-//        showAlways: true,
-//        allowMonthSelect: true,
-//        allowYearSelect: false,
-//        prevArrow: '<',
-//        nextArrow: '>',
-//        selectableDOW: [6],
-//        dowOffset: 1
-//      }
-//  });
-</script>
+<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
