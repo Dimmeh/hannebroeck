@@ -34,28 +34,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     {
         array_push($errors, "U heeft een of meerdere velden niet ingevuld. Probeer het nog eens");
     }
-    else
+    else if(preg_match('/[0-9]/i', $name))
     {
-        if($conn->query($sql) === TRUE)
+        array_push($errors, "Dit is geen geldige naam. Alleen letters zijn toegestaan.");
+        if(preg_match('/[a-z]/i', $phone))
         {
+            array_push($errors, 'Dit is geen geldige telefoonnummer. Alleen cijfers zijn toegestaan.');
+        }
+    }
+    else if($conn->query($sql) === TRUE)
+    {
 //        $c = $_SESSION['a'] + $_SESSION['b'];
 //        if($c !== $answer) {
 //            array_push($errors, 'Het resultaat van de Anti SPAM klopt niet. Probeer het nog eens');
 //        }
-
-            if(preg_match('/[0-9]/i', $name))
-            {
-                array_push($errors, "Dit is geen geldige naam. Alleen letters zijn toegestaan.");
-                if(preg_match('/[a-z]/i', $phone))
-                {
-                    array_push($errors, 'Dit is geen geldige telefoonnummer. Alleen cijfers zijn toegestaan.');
-                }
-            }
-            else
-            {
-                header('Location: thanks.php');
-            }
-        }
+        header('Location: thanks.php');
     }
 }
 
