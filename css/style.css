@@ -1,4 +1,12 @@
 /*  Content reservation  */
+@font-face {
+    src: url('../font/open-sans-fontfacekit/opensans_regular_macroman/OpenSans-Regular-webfont.svg');
+    src: url('../font/open-sans-fontfacekit/opensans_regular_macroman/OpenSans-Regular-webfont.eot');
+    src: url('../font/open-sans-fontfacekit/opensans_regular_macroman/OpenSans-Regular-webfont.ttf');
+    src: url('../font/open-sans-fontfacekit/opensans_regular_macroman/OpenSans-Regular-webfont.woff');
+    font-family: opensans;
+}
+
 *{
     margin: 0 auto;
     padding: 0;
@@ -254,7 +262,7 @@ section.calender-container {
 /*    Admin panel   */
 
 .container{
-    height: auto;
+    font-family: opensans;
     height: 100%;
     min-height: 100%;
     width:1250px;
@@ -281,13 +289,22 @@ section.calender-container {
     margin-bottom: 0.5em;
 }
 
-.add{
-    float:right;
+.add, .logout{
     vertical-align: top;
     padding:0.5em;
     background: #2a382f;
     color: white;
     border: none;
+    margin-left: 1em;
+}
+
+.add{
+    float:right;
+}
+
+#logout{
+    text-align: right;
+    margin-bottom: 1em;
 }
 
 .reservation-display{
@@ -314,4 +331,20 @@ section.calender-container {
     width:30%;
 }
 
+.title{
+    display: block;
+    background: #2a382f;
+    color:white;
+    padding: 0.5em;
+    font-style: italic;
+}
 
+.count-res{
+    padding:1em;
+    text-align: right;
+    display: block;
+}
+
+.count-res, .count-res a{
+    color: rgb(98,98,98);
+}

@@ -8,20 +8,11 @@
 
 require_once "config.php";
 
-$errors = [];
-//
-//$a = rand(2, 9);
-//$b = rand(2, 9);
-//
-//$_SESSION['a'] = $a;
-//$_SESSION['b'] = $b;
-
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $name = strip_tags($_POST['name']);
     $email = strip_tags($_POST['email']);
     $phone = $_POST['phone'];
-//    $answer = $_POST['answer'];
     $date = $_POST['date'];
     $time = $_POST['res-time'];
     $persons = $_POST['persons'];
@@ -30,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         VALUES('$name', '$email', '$phone', '$date', '$time', '$persons', '$children')";
 
 
-    if(empty($name) || empty($email) || empty($phone) /*|| empty($answer)*/ || empty($date) || empty($time) || empty($persons))
+    if(empty($name) || empty($email) || empty($phone) || empty($date) || empty($time) || empty($persons))
     {
         array_push($errors, "U heeft een of meerdere velden niet ingevuld. Probeer het nog eens");
     }
@@ -44,10 +35,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     }
     else if($conn->query($sql) === TRUE)
     {
-//        $c = $_SESSION['a'] + $_SESSION['b'];
-//        if($c !== $answer) {
-//            array_push($errors, 'Het resultaat van de Anti SPAM klopt niet. Probeer het nog eens');
-//        }
         header('Location: thanks.php');
     }
 }
