@@ -21,13 +21,22 @@ article p{
     margin-bottom: 1em;
 }
 
-.google-maps iframe{
-    overflow:hidden;
-}
 
-.google-maps{
+#google-maps{
     float:right;
     display: inline-block;
+    height: 36%;
+    width: 240px!important;
+    margin-right: 0!important;
+}
+
+#google-maps div {
+    margin-left:0!important;
+    margin-right:0!important;
+}
+
+#google-maps div div{
+    width: auto!important;
 }
 
 .reservation-warning, .thank-you{
@@ -68,9 +77,13 @@ article p{
     display:inline-block;
 }
 
-/*.personal-info input:last-child{*/
-/*width:20%;*/
-/*}*/
+.error{
+    background: rgb(255, 208, 208);
+    padding:0 0.5em;
+    border:1px solid red;
+    display: block;
+    margin-bottom: 1em;
+}
 
 /*  Reservation form | Reservation  */
 
@@ -347,4 +360,41 @@ section.calender-container {
 
 .count-res, .count-res a{
     color: rgb(98,98,98);
+}
+
+.reservation-display.full{
+    width:100%;
+}
+
+.login{
+    display: block;
+    width: 378px;
+}
+
+.login label {
+    vertical-align: middle;
+    display: table-cell;
+    float: left;
+}
+
+.login input{
+    float: right;
+    vertical-align: middle;
+    border: 1px solid #C5C5C5;
+    padding: 0.5em;
+}
+
+.login .send-button{
+    width:100%;
+}
+
+.loginInputContainer{
+    margin-bottom: 1em;
+    display: inline-block;
+    width: 100%;
+}
+
+.login form {
+    display: table-cell;
+    vertical-align: middle;
 }

@@ -8,6 +8,14 @@
 
 require_once "config.php";
 
+$name = "";
+$email = "";
+$phone = "";
+$date = "";
+$time = "";
+$persons = "";
+$children =  "";
+
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $name = strip_tags($_POST['name']);
@@ -31,6 +39,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         if(preg_match('/[a-z]/i', $phone))
         {
             array_push($errors, 'Dit is geen geldige telefoonnummer. Alleen cijfers zijn toegestaan.');
+            include_once "../js/error.js";
         }
     }
     else if($conn->query($sql) === TRUE)

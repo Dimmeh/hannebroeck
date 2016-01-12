@@ -23,6 +23,8 @@
   <link rel="stylesheet" href="./css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8">
   <script src="js/jquery-1.4.4.min.js" type="text/javascript" charset="utf-8"></script><style type="text/css"></style>
   <script src="js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvkmI2MEQbZN4BNENk-CUwe1hZBLqenY8&callback=initMap" async defer>
+  </script>
 </head>
 
 <body cz-shortcut-listen="true">
@@ -72,9 +74,9 @@
           bepaalde dagen. Reserveren kan via onderstaand formulier of telefonisch door te bellen met 0161-411458.
           Op zon- en feestdagen kunt u bij ons helaas geen tafel reserveren.
         </p>
-        <span class="google-maps">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2477.876724903711!2d4.857674215343912!3d51.6071473112267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c698c14b4486eb%3A0x49721fc464c495cb!2sDe+Hannebroeck!5e0!3m2!1snl!2snl!4v1450105237011" width="250" height="200" frameborder="0" scrolling="no" style="border:0" allowfullscreen></iframe>
-        </span>
+        <div id="google-maps">
+<!--          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2477.876724903711!2d4.857674215343912!3d51.6071473112267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c698c14b4486eb%3A0x49721fc464c495cb!2sDe+Hannebroeck!5e0!3m2!1snl!2snl!4v1450105237011" width="250" height="200" frameborder="0" scrolling="no" style="border:0" allowfullscreen></iframe>-->
+        </div>
         <p>
           Het pannekoeckenhuys-restaurant de Hannebroeck
           is gevestigd op:
@@ -104,11 +106,11 @@
           <h3>Persoonlijke gegevens</h3>
           <label>(* = verplicht)</label>
             <label for="name">Naam*:</label>
-            <input type="text" name="name">
+            <input type="text" name="name" value="<?= $name; ?>">
             <label for="email">E-mail adres*:</label>
-            <input type="email" name="email">
+            <input type="email" name="email" value="<?= $email; ?>">
             <label for="phone">Telefoonnummer*:</label>
-            <input type="text" name="phone">
+            <input type="text" name="phone" value="<?= $phone; ?>">
 <!--            <label for="anti-spam">Anti-SPAM; Geef antwoord op deze som*:</label>-->
 <!--            <span>--><?//= $a; ?><!-- + --><?//= $b; ?><!-- = </span><input type="number" name="answer" min="0">-->
         </span>
@@ -117,11 +119,11 @@
             <label for="date">Datum*:</label>
             <section class="calender-container">
               <span class="calender" id="mydate">
-                <input type="text" size="8" name="date" id="date"/>
+                <input type="text" size="8" name="date" id="date" value="<?= $date; ?>"/>
               </span>
             </section>
             <label for="time">Tijd*:</label>
-            <input type="time" name="res-time" min="11:00" max="19:00" step="1800" />
+            <input type="time" name="res-time" min="11:00" max="19:00" step="1800"  value="<?= $time; ?>"/>
 <!--          <span class="legend">-->
 <!--            <ul>-->
 <!--              <li>-->
@@ -136,7 +138,7 @@
 <!--            </ul>-->
 <!--          </span>-->
             <label for="persons">Aantal personen*:</label>
-            <select name="persons" id="persons">
+            <select name="persons" id="persons" value="<?= $persons; ?>">
               <option value="1">1 persoon</option>
               <option value="2">2 personen</option>
               <option value="3">3 personen</option>
@@ -152,7 +154,7 @@
             </select>
           <h3>Extra informatie</h3>
             <label for="kids10">Aantal kinderen tot 10 jaar</label>
-            <select name="children" id="kids10">
+            <select name="children" id="kids10" value="<?= $name; ?>">
               <option value="0">Geen</option>
               <option value="1">1 kind</option>
               <option value="2">2 kinderen</option>
@@ -234,6 +236,7 @@
 <script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/googleMaps.js"></script>
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
