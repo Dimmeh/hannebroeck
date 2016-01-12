@@ -1,8 +1,6 @@
 <?php
-    session_start();
-    require_once("header.php");
-    require_once "../includes/oldfasion/reservations.php";
-    require_once("../includes/oldfasion/session.php");
+    require_once "header.php";
+    require_once "../includes/oldfasion/detail.php";
 ?>
     <section class="reservation-display">
         <div class="admin-title-container">
@@ -38,6 +36,5 @@
         </table>
     </section>
 <?php
-    require_once("sidebar.php");
-    require_once("footer.php");
-?>
+    require_once "sidebar.php";
+    require_once "footer.php";

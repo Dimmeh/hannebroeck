@@ -43,7 +43,7 @@
             <a href="index.php?n1_id=5&amp;pagina=openingstijden" title="OPENINGSTIJDEN">OPENINGSTIJDEN</a>
           </li>
           <li>
-            <a href="reserveren.php">RESERVEREN</a>
+            <a href="reservation.php">RESERVEREN</a>
           </li>
           <li>
             <a href="contact.php" title="CONTACT">CONTACT</a>
@@ -116,7 +116,7 @@
         </span>
       </section>
       <span class="button-container">
-        <a href="reserveren.php">
+        <a href="reservation.php">
           <button class="cancel">Annuleren</button>
         </a>
         <a href="thanks.php">
@@ -165,7 +165,7 @@
         Pannekoeckenhuys - restaurant de Hannebroeck.
       </p>
       <p class="leesverdertxt">
-        <a href="reserveren.php" title="Ga naar de homepage van Pannekoeckenhuys Restaurant De Hannebroeck ">[Ga naar reserveren]</a>
+        <a href="reservation.php" title="Ga naar de homepage van Pannekoeckenhuys Restaurant De Hannebroeck ">[Ga naar reserveren]</a>
       </p>
     </div>
   </div>
@@ -177,7 +177,7 @@
       <a href="index.php?n1_id=3" title="Menukaart bij Pannekoeckenhuys Restaurant De Hannebroeck ">Menukaart</a>&nbsp;|&nbsp;
       <a href="index.php?n1_id=4" title="Bruiloften en Partijen bij Pannekoeckenhuys Restaurant De Hannebroeck ">Bruiloften en Partijen</a>&nbsp;|&nbsp;
       <a href="index.php?n1_id=5" title="Openingstijden bij Pannekoeckenhuys Restaurant De Hannebroeck ">Openingstijden</a>&nbsp;|&nbsp;
-      <a href="reserveren.php" title="Online reserveren bij Pannekoeckenhuys Restaurant De Hannebroeck ">Reserveren</a>&nbsp;|&nbsp;
+      <a href="reservation.php" title="Online reserveren bij Pannekoeckenhuys Restaurant De Hannebroeck ">Reserveren</a>&nbsp;|&nbsp;
       <a href="contact.php" title="Contact bij Pannekoeckenhuys Restaurant De Hannebroeck ">Contact</a>&nbsp;|&nbsp;
       <a href="http://www.camping-chaletpark-dehannebroeck.nl/" title="Chaletpark bij Pannekoeckenhuys Restaurant De Hannebroeck ">Chaletpark</a>&nbsp;|&nbsp;
     </div></div>

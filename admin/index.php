@@ -1,6 +1,10 @@
 <?php 
   require_once("header.php");
   require_once "../includes/oldfasion/login.php";
+  if(isset($_SESSION['use_id']))
+  {
+    header('Location: admin.php');
+  }
 ?>
 <section class="reservation-display full">
   <?php foreach($errors as $error) : ?>

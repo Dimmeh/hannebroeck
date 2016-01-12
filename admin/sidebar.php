@@ -1,3 +1,6 @@
+<?php
+    require_once "sql/reservations.php";
+?>
       <section class="sidebar">
       <form id="logout" action="../includes/oldfasion/logout.php">
           <input type="submit" value="Uitloggen" class="logout"/>
@@ -7,8 +10,8 @@
                 <h3>Aantal reserveringen</h3>
             </span>
             <span class="count-res">
-            <h3>12 reserveringen totaal</h3>
-            <a href="index.php">[Ga naar overzicht reserveringen]</a>
+            <h3><?= $total; ?> reserveringen totaal</h3>
+            <a href="admin.php">[Ga naar overzicht reserveringen]</a>
             </span>
         </div>
         <div class="admin-nav">

@@ -22,11 +22,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     $email = strip_tags($_POST['email']);
     $phone = $_POST['phone'];
     $date = $_POST['date'];
+    $dateDefault = date('Y-m-d', strtotime($date));
     $time = $_POST['res-time'];
     $persons = $_POST['persons'];
     $children =  $_POST['children'];
     $sql = "INSERT INTO han_reservations(res_name, res_email, res_phone, res_date, res_time, res_persons, res_children)
-        VALUES('$name', '$email', '$phone', '$date', '$time', '$persons', '$children')";
+        VALUES('$name', '$email', '$phone', '$dateDefault', '$time', '$persons', '$children')";
 
 
     if(empty($name) || empty($email) || empty($phone) || empty($date) || empty($time) || empty($persons))
@@ -44,7 +45,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     }
     else if($conn->query($sql) === TRUE)
     {
-        header('Location: thanks.php');
+        array_push($success, "Hartelijk dank voor uw reservering. U ontvangt z.s.m. per e-mail bericht van ons of uw reservering akkoord is.");
+        array_push($successAdmin, "De reservering is toegevoegd.");
+        $name = "";
+        $email = "";
+        $phone = "";
+        $date = "";
+        $time = "";
+        $persons = "";
+        $children =  "";
     }
 }
 

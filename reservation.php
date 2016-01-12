@@ -1,3 +1,8 @@
+<?php
+//  error_reporting(E_ALL & ~E_NOTICE);
+  session_start();
+  require_once "includes/oldfasion/add.php";
+?>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
   <title>Pannekoeckenhuys Restaurant De Hannebroeck </title>
   <meta name="Description" lang="nl" content="Landgoed De Hannebroeck is gelegen aan de rand van de Boswachterij Dorst en bestaat uit een Pannekoeckenhuys-Restaurant en een Chaletpark.">
@@ -12,9 +17,14 @@
   <link href="css/hannebroek_pannenkoek.css" rel="stylesheet" type="text/css" media="all">
   <link href="css/menu_style.css" rel="stylesheet" type="text/css" media="all">
   <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+  <link rel="stylesheet" href="js/jquery-ui-1.11.4.custom/jquery-ui.min.css">
+  <link rel="stylesheet" href="js/jquery-ui-1.11.4.custom/jquery-ui.structure.min.css">
+  <link rel="stylesheet" href="js/jquery-ui-1.11.4.custom/jquery-ui.theme.min.css">
   <link rel="stylesheet" href="./css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8">
   <script src="js/jquery-1.4.4.min.js" type="text/javascript" charset="utf-8"></script><style type="text/css"></style>
   <script src="js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvkmI2MEQbZN4BNENk-CUwe1hZBLqenY8&callback=initMap" async defer>
+  </script>
 </head>
 
 <body cz-shortcut-listen="true">
@@ -43,7 +53,7 @@
             <a href="index.php?n1_id=5&amp;pagina=openingstijden" title="OPENINGSTIJDEN">OPENINGSTIJDEN</a>
           </li>
           <li>
-            <a href="reserveren.php">RESERVEREN</a>
+            <a href="reservation.php">RESERVEREN</a>
           </li>
           <li>
             <a href="contact.php" title="CONTACT">CONTACT</a>
@@ -64,27 +74,40 @@
           bepaalde dagen. Reserveren kan via onderstaand formulier of telefonisch door te bellen met 0161-411458.
           Op zon- en feestdagen kunt u bij ons helaas geen tafel reserveren.
         </p>
-        <span class="google-maps">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2477.876724903711!2d4.857674215343912!3d51.6071473112267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c698c14b4486eb%3A0x49721fc464c495cb!2sDe+Hannebroeck!5e0!3m2!1snl!2snl!4v1450105237011" width="250" height="200" frameborder="0" scrolling="no" style="border:0" allowfullscreen></iframe>
-        </span>
+        <div id="google-maps">
+<!--          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2477.876724903711!2d4.857674215343912!3d51.6071473112267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c698c14b4486eb%3A0x49721fc464c495cb!2sDe+Hannebroeck!5e0!3m2!1snl!2snl!4v1450105237011" width="250" height="200" frameborder="0" scrolling="no" style="border:0" allowfullscreen></iframe>-->
+        </div>
         <p>
           Het pannekoeckenhuys-restaurant de Hannebroeck
           is gevestigd op:
         </p>
         <p>
-        <ul>
-          <li>Hoevestraat 12</li>
-          <li>4903 RR Oosterhout</li>
-        </ul>
+          <ul>
+            <li>Hoevestraat 12</li>
+            <li>4903 RR Oosterhout</li>
+          </ul>
         </p>
         <p>
           Het pannekoeckenhuys-restaurant is gelegen aan de
           rand van de Boswachterij Dorst.
         </p>
       </article>
-      <span class="thank-you">
-        Hartelijk dank voor uw reservering. U ontvangt z.s.m. per e-mail bericht van ons of uw reservering akkoord is.
+      <span class="reservation-warning">
+        Let op! Uw reservering wordt pas definitief als u een e-mail ontvangt met daarin dat de reservering is goedgekeurd.
       </span>
+      <?php foreach($errors as $error) : ?>
+      <span class="error">
+        <p><?=$error; ?></p>
+      </span>
+      <?php endforeach;?>
+
+      <?php foreach($success as $suc) : ?>
+        <span class="success">
+          <p><?=$suc; ?></p>
+        </span>
+      <?php endforeach;?>
+
+      <?php require_once "form.php" ?>
     </div>
   </div>
   <div id="rechts">
@@ -127,7 +150,7 @@
         Pannekoeckenhuys - restaurant de Hannebroeck.
       </p>
       <p class="leesverdertxt">
-        <a href="reserveren.php" title="Ga naar de homepage van Pannekoeckenhuys Restaurant De Hannebroeck ">[Ga naar reserveren]</a>
+        <a href="reservation.php" title="Ga naar de homepage van Pannekoeckenhuys Restaurant De Hannebroeck ">[Ga naar reserveren]</a>
       </p>
     </div>
   </div>
@@ -139,18 +162,23 @@
       <a href="index.php?n1_id=3" title="Menukaart bij Pannekoeckenhuys Restaurant De Hannebroeck ">Menukaart</a>&nbsp;|&nbsp;
       <a href="index.php?n1_id=4" title="Bruiloften en Partijen bij Pannekoeckenhuys Restaurant De Hannebroeck ">Bruiloften en Partijen</a>&nbsp;|&nbsp;
       <a href="index.php?n1_id=5" title="Openingstijden bij Pannekoeckenhuys Restaurant De Hannebroeck ">Openingstijden</a>&nbsp;|&nbsp;
-      <a href="reserveren.php" title="Online reserveren bij Pannekoeckenhuys Restaurant De Hannebroeck ">Reserveren</a>&nbsp;|&nbsp;
+      <a href="reservation.php" title="Online reserveren bij Pannekoeckenhuys Restaurant De Hannebroeck ">Reserveren</a>&nbsp;|&nbsp;
       <a href="contact.php" title="Contact bij Pannekoeckenhuys Restaurant De Hannebroeck ">Contact</a>&nbsp;|&nbsp;
       <a href="http://www.camping-chaletpark-dehannebroeck.nl/" title="Chaletpark bij Pannekoeckenhuys Restaurant De Hannebroeck ">Chaletpark</a>&nbsp;|&nbsp;
     </div></div>
+
 </div>
+
+<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/googleMaps.js"></script>
+
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
     $("a[rel^='prettyPhoto']").prettyPhoto();
   });
 </script>
-
-
 
 </body>
 </html>

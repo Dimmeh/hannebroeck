@@ -18,3 +18,5 @@ if($conn->connect_error){
 }
 
 $errors = [];
+$success = [];
+$successAdmin = [];

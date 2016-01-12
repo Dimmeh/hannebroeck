@@ -7,3 +7,4 @@ $sql = "SELECT res_id, res_name, res_date, res_time
         WHERE 1";
 
 $result = $conn->query($sql);
+
