@@ -15,3 +15,6 @@ $('#date').datepicker({
     monthNames: ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli",
         "Augustus", "September", "Oktober", "November", "December"]
 });
+function goBack() {
+    window.history.back();
+}

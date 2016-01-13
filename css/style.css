@@ -260,7 +260,8 @@ input#date{
 
 .cancel{
     background-color: #666;
-    float: left;
+    float: right;
+    margin-right:1em;
 }
 
 .month{
@@ -320,7 +321,6 @@ section.calender-container {
 
 .add, .logout{
     vertical-align: top;
-    padding:0.5em;
     background: #2a382f;
     color: white;
     border: none;
@@ -329,11 +329,19 @@ section.calender-container {
 
 .add{
     float:right;
+    height: 30px;
 }
 
 .add a{
     text-decoration: none;
     color: white;
+    display: block;
+    padding: 0.5em;
+}
+
+.add figure{
+    margin: 0;
+    display: inline-block;
 }
 
 #logout{
@@ -433,3 +441,100 @@ section.calender-container {
     width: 100%;
     display: inline-block;
 }
+
+.details-container{
+    width:96%;
+    padding: 2%;
+    display: inline-block;
+}
+
+.details-container table{
+    margin: 0;
+}
+
+.details-container table tr td:first-child {
+    padding-right: 1em;
+}
+
+.details-block{
+    width: 48%;
+    padding-right: 2%;
+    float: left;
+}
+
+.details-block.right{
+    float:right;
+}
+
+.details-title{
+    display:block;
+    margin-bottom: 0.5em;
+}
+
+.details-title p{
+    font-weight: bold;
+    text-decoration: underline;
+    color: #636363;
+}
+
+.detail-status figure {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.detail-status figure img {
+    width: 73%;
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+.detail-status p {
+    display: inline-block;
+}
+
+.footer{
+    color: white;
+    background: #2a382f;
+    padding: 0.5em 1em;
+}
+
+.footer p{
+    width: 1250px;
+    font-family: opensans;
+}
+
+.confirm {
+    background: transparent;
+    border: 0;
+    width: 125px;
+    text-align: left;
+}
+
+.edit{
+    width: 14px;
+    height: auto;
+    margin-right: 0.5em;
+}
+
+.detail-reservation input, .detail-reservation select {
+    width: 100%;
+    display: block;
+}
+
+/*label.status > input{ !* HIDE RADIO *!*/
+/*display:none;*/
+/*}*/
+
+/*label.status > input + img{!* IMAGE STYLES *!*/
+/*cursor:pointer;*/
+/*border:2px solid transparent;*/
+/*opacity: 0.5;*/
+/*}*/
+
+/*label.status > input + img:hover{!* IMAGE STYLES *!*/
+/*opacity: 1;*/
+/*}*/
+
+/*label.status > input:checked + img{ !* (CHECKED) IMAGE STYLES *!*/
+/*opacity: 1;*/
+/*}*/

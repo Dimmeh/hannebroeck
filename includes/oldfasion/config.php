@@ -7,9 +7,14 @@
  */
 
 $host = 'localhost';
-$username = 'root';
-$password = '';
-$db = 'hann_reservation';
+$username = '0904540';
+$password = 'thaciesh';
+$db = '0904540';
+//
+//$host = 'localhost';
+//$username = 'root';
+//$password = '';
+//$db = 'hann_reservation';
 
 $conn = new mysqli($host, $username, $password, $db);
 

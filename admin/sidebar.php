@@ -19,8 +19,8 @@
                 <h3>Aantal nieuwe reserveringen</h3>
             </span>
             <span class="count-res">
-                <h3>4 nieuwe reserveringen</h3>
-                <a href="new-reservation.php">[Ga naar nieuwe reserveringen]</a>
+                <h3><?= $new; ?> nieuwe reserveringen</h3>
+                <a href="new.php">[Ga naar nieuwe reserveringen]</a>
             </span>
         </div>
         <div class="admin-nav">

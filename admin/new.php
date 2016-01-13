@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    require_once("header.php");
-    require_once "../includes/oldfasion/reservations.php";
-    require_once("../includes/oldfasion/session.php");
+session_start();
+require_once("header.php");
+require_once "../includes/oldfasion/reservations.php";
+require_once("../includes/oldfasion/session.php");
 ?>
     <section class="reservation-display">
         <div class="admin-title-container">
@@ -11,7 +11,7 @@
                 <a href="reservation.php">Toevoegen</a>
             </button>
         </div>
-        <?php if($result->num_rows> 0): ?>
+        <?php if($resultStatusNew->num_rows > 0): ?>
             <table class="summary-reservations">
                 <thead>
                 <tr>
@@ -23,8 +23,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php while($row = $result->fetch_assoc()):
-                    ?>
+                <?php while($row = $resultStatusNew->fetch_assoc()): ?>
                     <tr>
                         <td><?= $row['res_id']; ?></td>
                         <td><?= $row['res_name'] ;?></td>
@@ -33,13 +32,13 @@
                         <td><a href="details.php?getId=<?= $row['res_id']; ?>">Meer details</a></td>
                     </tr>
                 <?php endwhile ?>
-            </tbody>
-        </table>
-        <?php else: ?>
-        <p>Er zijn op dit moment geen reservering met een goedkeurig.</p>
+                </tbody>
+            </table>
+        <?php else:?>
+            <p>Er zijn geen nieuwe reserveren.</p>
         <?php endif ?>
     </section>
 <?php
-    require_once("sidebar.php");
-    require_once("footer.php");
+require_once("sidebar.php");
+require_once("footer.php");
 ?>
