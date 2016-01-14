@@ -25,10 +25,10 @@
         </div>
         <div class="admin-nav">
             <span class="title">
-                <h3>Aantal reserveringen vandaag</h3>
+                <h3>Aantal reserveringen op <?= $dateToday ;?></h3>
             </span>
             <span class="count-res">
-                <h3>Vandaag 5 reserveringen</h3>
+                <h3><?= $today ;?> reserveringen totaal</h3>
                 <a href="today-reservation.php">[Ga naar vandaag reserveringen]</a>
             </span>
             <div class="clear"></div>
