@@ -25,7 +25,7 @@
         </div>
         <div class="admin-nav">
             <span class="title">
-                <h3>Aantal reserveringen op <?= $dateToday ;?></h3>
+                <h3>Aantal reserveringen op <?= $dateFull->format('d');?> <?= $translateMonth; ?></h3>
             </span>
             <span class="count-res">
                 <h3><?= $today ;?> reserveringen totaal</h3>
