@@ -11,16 +11,71 @@
     $new = $numNew["numberNew"];
 
     //Total of the reservations for the next Saturday
-    $dateFull = new DateTime("2016-01-16 23:59:59");
-    $date = date('Y-m-d', strtotime($dateFull));
-    $dateToday = date('Y-m-d');
-    $dateTotal = "";
-    if(date('Y-m-d H:i:s') === $date)
+    $dateFull = new DateTime("2016-01-14 22:18:00");
+    $currentDateTime = date('Y-m-d H:i:s');
+    $empty ="";
+    var_dump($currentDateTime);
+    //Translate to Dutch
+    $defaultMonth = $dateFull->format('F');
+    $translateMonth = "";
+
+    switch($defaultMonth)
     {
-        $dateFull->modify('+7 day');
-        $dateTotal =  date('d m', strtotime($date));
+        case "January":
+            $translateMonth = "januari";
+            break;
+        case "February":
+            $translateMonth = "februari";
+            break;
+        case "March":
+            $translateMonth = "maart";
+            break;
+        case "April":
+            $translateMonth = "april";
+            break;
+        case "May":
+            $translateMonth = "mei";
+            break;
+        case "June":
+            $translateMonth = "juni";
+            break;
+        case "July":
+            $translateMonth = "juli";
+            break;
+        case "August":
+            $translateMonth = "augustus";
+            break;
+        case "September":
+            $translateMonth = "september";
+            break;
+        case "October":
+            $translateMonth = "oktober";
+            break;
+        case "November":
+            $translateMonth = "november";
+            break;
+        case "December":
+            $translateMonth = "december";
+            break;
+        default:
+            echo "";
+            break;
     }
 
-    $sqlToday = mysqli_query($conn, "SELECT SUM(res_date) AS numberDate BETWEEN NOW() AND '$date' FROM han_reservations WHERE res_status = 1");
+    if($currentDateTime == $dateFull->format("Y-m-d H:i:s"))
+    {
+        for($i = 1; $i<2; $i++)
+        {
+            $datePlus = $dateFull->modify('+7 day');
+            unset($dateFull);
+            $dateFull = new DateTime($datePlus, "Y-m-d H:i:s");
+        }
+    }
+
+    //Query total upcoming events
+
+    $dateToday = date('Y-m-d');
+    $sqlToday = mysqli_query($conn, "  SELECT COUNT(*) AS numberDate
+  FROM han_reservations WHERE res_status = 1 AND res_date = '$dateToday' ");
     $numToday = mysqli_fetch_array($sqlToday);
     $today = $numToday['numberDate'];
