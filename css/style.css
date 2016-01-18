@@ -12,6 +12,10 @@
     padding: 0;
 }
 
+html, body {
+    height: 100%;
+}
+
 article {
     float: left;
     margin-bottom: 1em;
@@ -21,6 +25,9 @@ article p{
     margin-bottom: 1em;
 }
 
+.clear{
+    clear: both;
+}
 
 #google-maps{
     float:right;
@@ -247,14 +254,17 @@ input#date{
     float:left;
 }
 
-.send-button, .cancel{
+.send-button, .cancel, .confirm-button{
     padding: 10px;
     border: none;
     color: white;
 }
 
-.send-button{
+.send-button, .confirm-button{
     background-color: #2A382F;
+}
+
+.send-button{
     float: right;
 }
 
@@ -288,7 +298,6 @@ section.calender-container {
 
 .container{
     font-family: opensans;
-    height: 100%;
     min-height: 100%;
     width:1250px;
     background: white;
@@ -297,6 +306,8 @@ section.calender-container {
 .container main{
     width:100%;
     display: inline-block;
+    /* min-height: 100%; */
+    margin-bottom: 2em;
 }
 
 .header-admin{
@@ -328,11 +339,14 @@ section.calender-container {
 }
 
 .add{
-    float:right;
     height: 30px;
 }
 
-.add a{
+.add, .logout{
+    float:right;
+}
+
+.add a, .logout{
     text-decoration: none;
     color: white;
     display: block;
@@ -521,20 +535,16 @@ section.calender-container {
     display: block;
 }
 
-/*label.status > input{ !* HIDE RADIO *!*/
-/*display:none;*/
-/*}*/
-
-/*label.status > input + img{!* IMAGE STYLES *!*/
-/*cursor:pointer;*/
-/*border:2px solid transparent;*/
-/*opacity: 0.5;*/
-/*}*/
-
-/*label.status > input + img:hover{!* IMAGE STYLES *!*/
-/*opacity: 1;*/
-/*}*/
-
-/*label.status > input:checked + img{ !* (CHECKED) IMAGE STYLES *!*/
-/*opacity: 1;*/
-/*}*/
+.container {
+    min-height: 100%;
+    /* equal to footer height */
+    margin-bottom: -38px;
+}
+.container:after {
+    content: "";
+    display: block;
+}
+.footer, .container:after {
+    /* .push must be the same height as footer */
+    height: 22px;
+}

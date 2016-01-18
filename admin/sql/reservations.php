@@ -1,5 +1,8 @@
 <?php
     require_once "../includes/oldfasion/config.php";
+
+
+
     //Total of all the reservations
     $sqlTotal = mysqli_query($conn,"SELECT COUNT(*) AS numberTotal FROM han_reservations WHERE res_status = 1");
     $numTotal = mysqli_fetch_array($sqlTotal);
@@ -10,13 +13,19 @@
     $numNew = mysqli_fetch_array($sqlNew);
     $new = $numNew["numberNew"];
 
+    //Variables date & time for upcoming events
+    $dateSaturday = date('d-m-Y' , strtotime('Next Saturday'));
     //Total of the reservations for the next Saturday
-    $dateFull = new DateTime("2016-01-14 22:18:00");
-    $currentDateTime = date('Y-m-d H:i:s');
-    $empty ="";
-    var_dump($currentDateTime);
+
+    $sqlToday = mysqli_query($conn, "  SELECT COUNT(*) AS numberDate
+                                       FROM `han_reservations`
+                                       WHERE `res_status` = 1
+                                       AND `res_date` = '$dateSaturday' ");
+    $numToday = mysqli_fetch_array($sqlToday);
+    $today = $numToday['numberDate'];
     //Translate to Dutch
-    $defaultMonth = $dateFull->format('F');
+    $defaultMonth = date('F', strtotime($dateSaturday));
+    $day = date('d', strtotime($dateSaturday));
     $translateMonth = "";
 
     switch($defaultMonth)
@@ -62,20 +71,4 @@
             break;
     }
 
-    if($currentDateTime == $dateFull->format("Y-m-d H:i:s"))
-    {
-        for($i = 1; $i<2; $i++)
-        {
-            $datePlus = $dateFull->modify('+7 day');
-            unset($dateFull);
-            $dateFull = new DateTime($datePlus, "Y-m-d H:i:s");
-        }
-    }
 
-    //Query total upcoming events
-
-    $dateToday = date('Y-m-d');
-    $sqlToday = mysqli_query($conn, "  SELECT COUNT(*) AS numberDate
-  FROM han_reservations WHERE res_status = 1 AND res_date = '$dateToday' ");
-    $numToday = mysqli_fetch_array($sqlToday);
-    $today = $numToday['numberDate'];

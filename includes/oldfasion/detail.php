@@ -6,9 +6,16 @@
     $result = $conn->query($sql);
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $status = $_POST['status'];
-        $sqlUpdate = "UPDATE han_reservations SET res_status='$status' WHERE res_id='$res_id'";
-        if ($conn->query($sqlUpdate) === TRUE){
-            header('Location: details.php?getId='.$res_id);
+        if(!isset($_POST['status']))
+        {
+            array_push($errors, "De status is niet ingevuld. Vul de status in.");
+        }
+        else
+        {
+            $status = $_POST['status'];
+            $sqlUpdate = "UPDATE han_reservations SET res_status='$status' WHERE res_id='$res_id'";
+            if ($conn->query($sqlUpdate) === TRUE){
+                header('Location: details.php?getId='.$res_id);
+            }
         }
     }

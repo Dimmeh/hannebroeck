@@ -3,6 +3,11 @@
     require_once "../includes/oldfasion/detail.php";
 ?>
     <section class="reservation-display">
+        <?php foreach($errors as $error) : ?>
+            <span class="error">
+        <p><?=$error; ?></p>
+      </span>
+        <?php endforeach;?>
         <div class="admin-title-container">
             <?php if($result->num_rows> 0):
                 while($row = $result->fetch_assoc()):
@@ -91,8 +96,10 @@
                                     <span>Afgekeurd</span>
                                 </label>
                         </td>
+                        </tr>
+                            <tr>
                         <td>
-                               <input type="submit" class="send-button" value="Bevestigen" />
+                               <input type="submit" class="confirm-button" value="Bevestigen" />
                             </form>
                         </td>
                     </tr>

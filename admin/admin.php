@@ -11,7 +11,7 @@
                 <a href="reservation.php">Toevoegen</a>
             </button>
         </div>
-        <?php if($result->num_rows> 0): ?>
+        <?php if($resultQuery->num_rows> 0): ?>
             <table class="summary-reservations">
                 <thead>
                 <tr>

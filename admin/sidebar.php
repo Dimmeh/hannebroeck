@@ -4,6 +4,7 @@
       <section class="sidebar">
       <form id="logout" action="../includes/oldfasion/logout.php">
           <input type="submit" value="Uitloggen" class="logout"/>
+          <div class="clear"></div>
       </form>
         <div class="admin-nav">
             <span class="title">
@@ -25,7 +26,7 @@
         </div>
         <div class="admin-nav">
             <span class="title">
-                <h3>Aantal reserveringen op <?= $dateFull->format('d');?> <?= $translateMonth; ?></h3>
+                <h3>Aantal reserveringen op <?= $day;?> <?= $translateMonth; ?></h3>
             </span>
             <span class="count-res">
                 <h3><?= $today ;?> reserveringen totaal</h3>
