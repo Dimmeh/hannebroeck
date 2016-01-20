@@ -1,8 +1,9 @@
 <?php
+    //This is the home page after you've been logged in the admin panel. You see a summary of the reservations with a status approved
     session_start();
-    require_once("header.php");
-    require_once "../includes/oldfasion/reservations.php";
-    require_once("../includes/oldfasion/session.php");
+    require_once "includes/header.php";
+    require_once "../includes/logic/summaryReservations.php";
+    require_once "../includes/logic/session.php";
 ?>
     <section class="reservation-display">
         <div class="admin-title-container">
@@ -23,7 +24,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php while($row = $result->fetch_assoc()):
+                <?php while($row = $resultQuery->fetch_assoc()):
                     ?>
                     <tr>
                         <td><?= $row['res_id']; ?></td>
@@ -40,6 +41,6 @@
         <?php endif ?>
     </section>
 <?php
-    require_once("sidebar.php");
-    require_once("footer.php");
+    require_once "includes/sidebar.php";
+    require_once "includes/footer.php";
 ?>

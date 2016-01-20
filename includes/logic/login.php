@@ -1,7 +1,7 @@
 <?php
+    //Login with login data
     session_start();
     require_once "config.php";
-
 
     $userId = "";
     $dbUsername = "";
@@ -9,12 +9,12 @@
 
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        $username = strip_tags($_POST['username']);
-        $password = strip_tags($_POST['password']);
+        $usernameLogin = $_POST['username'];
+        $passwordLogin = $_POST['password'];
 
         $sql = "SELECT *
                 FROM han_users
-                WHERE use_username = '$username'
+                WHERE use_username = '$usernameLogin'
                 LIMIT 1";
 
         $result = $conn->query($sql);
@@ -29,9 +29,9 @@
             }
         }
 
-        if($username == $dbUsername && $password == $dbPassword)
+        if($usernameLogin == $dbUsername && $passwordLogin == $dbPassword)
         {
-            $_SESSION['use_username'] = $username;
+            $_SESSION['use_username'] = $usernameLogin;
             $_SESSION['use_id'] = $userId;
             header('Location: admin.php');
         }

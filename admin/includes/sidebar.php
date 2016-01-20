@@ -1,8 +1,8 @@
 <?php
-    require_once "sql/reservations.php";
+    require_once "sql/countReservations.php";
 ?>
       <section class="sidebar">
-      <form id="logout" action="../includes/oldfasion/logout.php">
+      <form id="logout" action="../includes/logic/logout.php">
           <input type="submit" value="Uitloggen" class="logout"/>
           <div class="clear"></div>
       </form>
@@ -30,7 +30,7 @@
             </span>
             <span class="count-res">
                 <h3><?= $today ;?> reserveringen totaal</h3>
-                <a href="today-reservation.php">[Ga naar vandaag reserveringen]</a>
+                <a href="today.php">[Ga naar vandaag reserveringen]</a>
             </span>
             <div class="clear"></div>
         </div>

@@ -12,8 +12,9 @@
   <div class="container">
     <header>
       <figure class="header-admin">
-        <img src="../images/site/header-hannebroeck.png" />
+        <a href="admin.php">
+          <img src="../images/site/header-hannebroeck.png" />
+        </a>
       </figure>
     </header>
     <main>
-

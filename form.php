@@ -1,4 +1,4 @@
-<form action="reservation.php" method="POST">
+<!--Form for adding a reservation-->
         <span class="personal-info">
           <h3>Persoonlijke gegevens</h3>
           <label>(* = verplicht)</label>
@@ -21,6 +21,7 @@
             </section>
             <label for="time">Tijd*:</label>
             <input type="time" name="res-time" min="11:00" max="19:00" step="1800"  value="<?= $time; ?>"/>
+            <span class="reservation-warning">Opmerking: U kunt alleen tussen 11:00 uur en 19:00 uur op elk half uur reserveren. Voorbeeld: 12:30</span>
             <!--          <span class="legend">-->
             <!--            <ul>-->
             <!--              <li>-->
@@ -35,37 +36,19 @@
             <!--            </ul>-->
             <!--          </span>-->
             <label for="persons">Aantal personen*:</label>
-            <select name="persons" id="persons" value="<?= $persons; ?>">
+            <select name="persons" id="persons" onchange="get_children(this.id, 'kids10')">
                 <option value="1">1 persoon</option>
-                <option value="2">2 personen</option>
-                <option value="3">3 personen</option>
-                <option value="4">4 personen</option>
-                <option value="5">5 personen</option>
-                <option value="6">6 personen</option>
-                <option value="7">7 personen</option>
-                <option value="8">8 personen</option>
-                <option value="9">9 personen</option>
-                <option value="10">10 personen</option>
-                <option value="11">11 personen</option>
-                <option value="12">12 personen</option>
+                <?php for($i = 2; $i < 13; $i++):?>
+                    <option value="<?= $i;?>"><?= $i;?> personen</option>
+                <?php endfor?>
             </select>
           <h3>Extra informatie</h3>
             <label for="kids10">Aantal kinderen tot 10 jaar</label>
-            <select name="children" id="kids10" value="<?= $name; ?>">
+            <select name="children" id="kids10">
                 <option value="0">Geen</option>
-                <option value="1">1 kind</option>
-                <option value="2">2 kinderen</option>
-                <option value="3">3 kinderen</option>
-                <option value="4">4 kinderen</option>
-                <option value="5">5 kinderen</option>
-                <option value="6">6 kinderen</option>
-                <option value="7">7 kinderen</option>
-                <option value="8">8 kinderen</option>
-                <option value="9">9 kinderen</option>
-                <option value="10">10 kinderen</option>
-                <option value="11">11 kinderen</option>
             </select>
           <div class="clear"></div>
           <input type="submit" value="Volgende" name="submit" class="send-button" >
+        <div class="clear"></div>
         </span>
 </form>

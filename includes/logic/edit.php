@@ -1,4 +1,5 @@
 <?php
+    //Update the reservation from edit page
     require_once 'detail.php';
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){

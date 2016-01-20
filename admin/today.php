@@ -1,10 +1,7 @@
 <?php
-    //In this page it gives you a summary about the incoming reservations
-    session_start();
+    //In this page it gives you a summary about the reservations for the next Saturday
     require_once "includes/header.php";
     require_once "../includes/logic/summaryReservations.php";
-    require_once "../includes/datepicker.php";
-    require_once "../includes/logic/session.php";
 ?>
     <section class="reservation-display">
         <div class="admin-title-container">
@@ -13,7 +10,7 @@
                 <a href="reservation.php">Toevoegen</a>
             </button>
         </div>
-        <?php if($resultStatusNew->num_rows > 0): ?>
+        <?php if($resultTodaySummary->num_rows > 0): ?>
             <table class="summary-reservations">
                 <thead>
                 <tr>
@@ -25,7 +22,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php while($row = $resultStatusNew->fetch_assoc()): ?>
+                <?php while($row = $resultTodaySummary->fetch_assoc()): ?>
                     <tr>
                         <td><?= $row['res_id']; ?></td>
                         <td><?= $row['res_name'] ;?></td>
@@ -43,4 +40,3 @@
 <?php
 require_once "includes/sidebar.php";
 require_once "includes/footer.php";
-?>

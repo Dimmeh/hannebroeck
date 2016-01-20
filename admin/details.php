@@ -1,6 +1,7 @@
 <?php
-    require_once "header.php";
-    require_once "../includes/oldfasion/detail.php";
+    //Detail page of a reservation. The info comes from $_GET['getId'].
+    require_once "includes/header.php";
+    require_once "../includes/logic/detail.php";
 ?>
     <section class="reservation-display">
         <?php foreach($errors as $error) : ?>
@@ -12,7 +13,7 @@
             <?php if($result->num_rows> 0):
                 while($row = $result->fetch_assoc()):
             ?>
-            <h3>Reservering #<?= $row['res_id'];?> | <?= $row['res_name']?></h3>
+            <h3>Reservering # <?= $row['res_id'];?> | <?= $row['res_name']?></h3>
             <button class="add">
                 <a href="reservation.php">Toevoegen</a>
             </button>
@@ -145,5 +146,5 @@
         </div>
     </section>
 <?php
-    require_once "sidebar.php";
-    require_once "footer.php";
+    require_once "includes/sidebar.php";
+    require_once "includes/footer.php";

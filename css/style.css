@@ -1,10 +1,14 @@
-/*  Content reservation  */
+/*  Setup  */
 @font-face {
     src: url('../font/open-sans-fontfacekit/opensans_regular_macroman/OpenSans-Regular-webfont.svg');
     src: url('../font/open-sans-fontfacekit/opensans_regular_macroman/OpenSans-Regular-webfont.eot');
     src: url('../font/open-sans-fontfacekit/opensans_regular_macroman/OpenSans-Regular-webfont.ttf');
     src: url('../font/open-sans-fontfacekit/opensans_regular_macroman/OpenSans-Regular-webfont.woff');
     font-family: opensans;
+}
+
+.hidden{
+    display: none;
 }
 
 *{
@@ -29,6 +33,8 @@ article p{
     clear: both;
 }
 
+/*  Google maps  */
+
 #google-maps{
     float:right;
     display: inline-block;
@@ -46,16 +52,35 @@ article p{
     width: auto!important;
 }
 
-.reservation-warning, .thank-you{
+/*  Reservation warning  */
+
+.reservation-warning{
     margin-bottom: 3em;
     font-style: italic;
     display: block;
 }
 
+.error, .success{
+    display: block;
+    margin-bottom: 1em;
+    padding:0 0.5em;
+}
+
+.error{
+    background: rgb(255, 208, 208);
+    border:1px solid red;
+
+}
+
+.success{
+    background: #B3FFA0;
+    border: 1px solid green;
+}
+
 /*  Reservation form  */
 
 .reservation form {
-    height: 403px;
+    height: auto;
     display: inline-block;
     width:100%;
 }
@@ -84,23 +109,6 @@ article p{
 
 .personal-info p{
     display:inline-block;
-}
-
-.error, .success{
-    display: block;
-    margin-bottom: 1em;
-    padding:0 0.5em;
-}
-
-.error{
-    background: rgb(255, 208, 208);
-    border:1px solid red;
-
-}
-
-.success{
-    background: #B3FFA0;
-    border: 1px solid green;
 }
 
 /*  Reservation form | Reservation  */
@@ -306,7 +314,6 @@ section.calender-container {
 .container main{
     width:100%;
     display: inline-block;
-    /* min-height: 100%; */
     margin-bottom: 2em;
 }
 
@@ -547,4 +554,12 @@ section.calender-container {
 .footer, .container:after {
     /* .push must be the same height as footer */
     height: 22px;
+}
+
+span.hiddenRadio {
+    background: white;
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    margin: 0 0 0 -13px;
 }

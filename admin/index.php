@@ -1,6 +1,7 @@
-<?php 
-  require_once("header.php");
-  require_once "../includes/oldfasion/login.php";
+<?php
+  //Login page
+  require_once("includes/header.php");
+  require_once "../includes/logic/login.php";
   if(isset($_SESSION['use_id']))
   {
     header('Location: admin.php');
@@ -27,5 +28,5 @@
   </section>
 </section>
 <?php
-  require_once("footer.php");
+  require_once "includes/footer.php";
 ?>

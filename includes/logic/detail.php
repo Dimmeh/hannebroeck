@@ -1,10 +1,12 @@
 <?php
     require_once "config.php";
 
+    //Get results of the reservations
     $res_id = $_GET['getId'];
     $sql = "SELECT * FROM han_reservations WHERE res_id = '$res_id' ";
     $result = $conn->query($sql);
 
+    //Update the new reservation
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         if(!isset($_POST['status']))
         {

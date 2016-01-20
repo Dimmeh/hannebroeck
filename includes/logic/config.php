@@ -6,7 +6,7 @@
  * Time: 15:03
  */
 
-
+//Setup for connect to database
 $host = 'localhost';
 $username = 'root';
 $password = '';

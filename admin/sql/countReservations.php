@@ -1,7 +1,5 @@
 <?php
-    require_once "../includes/oldfasion/config.php";
-
-
+    require_once "../includes/logic/config.php";
 
     //Total of all the reservations
     $sqlTotal = mysqli_query($conn,"SELECT COUNT(*) AS numberTotal FROM han_reservations WHERE res_status = 1");
@@ -14,15 +12,16 @@
     $new = $numNew["numberNew"];
 
     //Variables date & time for upcoming events
-    $dateSaturday = date('d-m-Y' , strtotime('Next Saturday'));
-    //Total of the reservations for the next Saturday
+    $dateSaturday = date('Y-m-d' , strtotime('Next Saturday'));
 
+    //Total of the reservations for the next Saturday
     $sqlToday = mysqli_query($conn, "  SELECT COUNT(*) AS numberDate
                                        FROM `han_reservations`
                                        WHERE `res_status` = 1
                                        AND `res_date` = '$dateSaturday' ");
     $numToday = mysqli_fetch_array($sqlToday);
     $today = $numToday['numberDate'];
+
     //Translate to Dutch
     $defaultMonth = date('F', strtotime($dateSaturday));
     $day = date('d', strtotime($dateSaturday));

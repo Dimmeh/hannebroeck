@@ -1,6 +1,7 @@
 <?php
-require_once "header.php";
-require_once "../includes/oldfasion/edit.php";
+    //Edit page for a reservation
+    require_once "includes/header.php";
+    require_once "../includes/logic/edit.php";
 ?>
     <section class="reservation-display">
         <div class="admin-title-container">
@@ -8,7 +9,7 @@ require_once "../includes/oldfasion/edit.php";
             while($row = $result->fetch_assoc()):
             ?>
             <form action="edit.php?getId=<?=$row['res_id'];?>" method="post">
-            <h3>Reservering #<input type="radio" name="id" checked="checked" value="<?= $row['res_id'];?>" /> <?= $row['res_id'];?> | <?= $row['res_name']?></h3>
+            <h3>Reservering # <?= $row['res_id'];?> | <?= $row['res_name']?></h3><input type="radio" name="id" checked="checked" value="<?= $row['res_id'];?>" /><span class="hiddenRadio"></span>
             <button class="add">
                 <a href="reservation.php">Toevoegen</a>
             </button>
@@ -78,7 +79,7 @@ require_once "../includes/oldfasion/edit.php";
                     <tr>
                         <td><label for="persons">Aantal personen:</label></td>
                         <td>
-                            <select name="persons" id="persons">
+                            <select name="persons" id="persons" onchange="get_children(this.id, 'kids10')">
                                 <option value="1" <?php echo ($row['res_persons']== 1)?'selected="selected"':'' ?> >1 persoon</option>
                                 <?php for($i = 2;$i<13;$i++){?>
                                     <option value="<?=$i; ?>" <?php echo ($row['res_persons']== $i)?'selected="selected"':'' ?> ><?=$i;?> personen</option>
@@ -121,5 +122,5 @@ require_once "../includes/oldfasion/edit.php";
         </form>
     </section>
 <?php
-require_once "sidebar.php";
-require_once "footer.php";
+require_once "includes/sidebar.php";
+require_once "includes/footer.php";

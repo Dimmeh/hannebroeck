@@ -1,7 +1,8 @@
 <?php
-//  error_reporting(E_ALL & ~E_NOTICE);
+//Reservation page
   session_start();
-  require_once "includes/oldfasion/add.php";
+  require_once "includes/logic/add.php";
+  require_once "includes/datepicker.php";
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
   <title>Pannekoeckenhuys Restaurant De Hannebroeck </title>
@@ -75,7 +76,7 @@
           Op zon- en feestdagen kunt u bij ons helaas geen tafel reserveren.
         </p>
         <div id="google-maps">
-<!--          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2477.876724903711!2d4.857674215343912!3d51.6071473112267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c698c14b4486eb%3A0x49721fc464c495cb!2sDe+Hannebroeck!5e0!3m2!1snl!2snl!4v1450105237011" width="250" height="200" frameborder="0" scrolling="no" style="border:0" allowfullscreen></iframe>-->
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2477.876724903711!2d4.857674215343912!3d51.6071473112267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c698c14b4486eb%3A0x49721fc464c495cb!2sDe+Hannebroeck!5e0!3m2!1snl!2snl!4v1450105237011" width="250" height="200" frameborder="0" scrolling="no" style="border:0" allowfullscreen></iframe>
         </div>
         <p>
           Het pannekoeckenhuys-restaurant de Hannebroeck
@@ -106,8 +107,10 @@
           <p><?=$suc; ?></p>
         </span>
       <?php endforeach;?>
-
-      <?php require_once "form.php" ?>
+      <form action="reservation.php" method="POST">
+        <?php require_once "form.php" ?>
+        <div class="clear"></div>
+      </form>
     </div>
   </div>
   <div id="rechts">
@@ -166,13 +169,13 @@
       <a href="contact.php" title="Contact bij Pannekoeckenhuys Restaurant De Hannebroeck ">Contact</a>&nbsp;|&nbsp;
       <a href="http://www.camping-chaletpark-dehannebroeck.nl/" title="Chaletpark bij Pannekoeckenhuys Restaurant De Hannebroeck ">Chaletpark</a>&nbsp;|&nbsp;
     </div></div>
-
 </div>
-
+<script type="text/javascript">
+  var reservedDates = <?= json_encode($dateBlock); ?>;
+</script>
 <script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
-<script type="text/javascript" src="js/googleMaps.js"></script>
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
