@@ -10,6 +10,12 @@
             ?>
             <form action="edit.php?getId=<?=$row['res_id'];?>" method="post">
             <h3>Reservering # <?= $row['res_id'];?> | <?= $row['res_name']?></h3><input type="radio" name="id" checked="checked" value="<?= $row['res_id'];?>" /><span class="hiddenRadio"></span>
+                <?php if($row['res_status'] == 0) {
+                    ?>
+                    <input type="submit" name="submitDelete" value="Verwijderen" class="add">
+                <?php
+                    }
+                ?>
             <button class="add">
                 <a href="reservation.php">Toevoegen</a>
             </button>
@@ -115,7 +121,7 @@
         </div>
         <div class="details-container">
             <div class="details-block right">
-                <input type="submit" value="Bewerken" name="submit" class="send-button" />
+                <input type="submit" value="Bewerken" name="submitUpdate" class="send-button" />
                 <button class="cancel" onclick="goBack()">Annuleren</button>
             </div>
         </div>

@@ -1,20 +1,18 @@
 <?php
-    //In this page it gives you a summary about the reservations for the next Saturday
-    require_once "includes/header.php";
-    require_once "../includes/logic/summaryReservations.php";
-    require_once "sql/countReservations.php";
+//In this page it gives you a summary about the incoming reservations
+session_start();
+require_once "includes/header.php";
+require_once "../includes/logic/summaryReservations.php";
+require_once "../includes/logic/session.php";
 ?>
     <section class="reservation-display">
         <div class="admin-title-container">
             <h3>Overzicht reserveringen</h3>
             <button class="add">
-                <a href="delete.php">Prullenbak (<?= $delete;?>)</a>
-            </button>
-            <button class="add">
                 <a href="reservation.php">Toevoegen</a>
             </button>
         </div>
-        <?php if($resultTodaySummary->num_rows > 0): ?>
+        <?php if($resultIncorrect->num_rows > 0): ?>
             <table class="summary-reservations">
                 <thead>
                 <tr>
@@ -26,7 +24,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php while($row = $resultTodaySummary->fetch_assoc()): ?>
+                <?php while($row = $resultIncorrect->fetch_assoc()): ?>
                     <tr>
                         <td><?= $row['res_id']; ?></td>
                         <td><?= $row['res_name'] ;?></td>
@@ -38,9 +36,10 @@
                 </tbody>
             </table>
         <?php else:?>
-            <p>Er zijn geen reserveren voor vandaag.</p>
+            <p>De prullenbak is leeg.</p>
         <?php endif ?>
     </section>
 <?php
 require_once "includes/sidebar.php";
 require_once "includes/footer.php";
+?>

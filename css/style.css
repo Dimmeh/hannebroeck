@@ -483,8 +483,9 @@ section.calender-container {
     float: left;
 }
 
-.details-block.right{
+.details-container.right, .details-block.right{
     float:right;
+    padding: 2% 0;
 }
 
 .details-title{

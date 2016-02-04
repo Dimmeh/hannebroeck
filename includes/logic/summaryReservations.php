@@ -14,7 +14,7 @@ $resultQuery = $conn->query($sql);
 $sqlStatusNew = "  SELECT res_id, res_name, res_date, res_time, res_status
                 FROM han_reservations
                 WHERE res_status = 2
-                ORDER BY res_date";
+                ORDER BY res_id DESC";
 
 $resultStatusNew = $conn->query($sqlStatusNew);
 
@@ -27,5 +27,13 @@ $sqlTodaySummary = "SELECT res_id, res_name, res_date, res_time
         ORDER BY res_time";
 
 $resultTodaySummary = $conn->query($sqlTodaySummary);
+
+$sqlIncorrect = "SELECT res_id, res_name, res_date, res_time
+                FROM han_reservations
+                WHERE res_status = 0
+                ORDER BY res_date";
+
+$resultIncorrect = $conn->query($sqlIncorrect);
+
 
 

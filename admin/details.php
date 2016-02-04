@@ -2,6 +2,8 @@
     //Detail page of a reservation. The info comes from $_GET['getId'].
     require_once "includes/header.php";
     require_once "../includes/logic/detail.php";
+    require_once "sql/countReservations.php";
+
 ?>
     <section class="reservation-display">
         <?php foreach($errors as $error) : ?>
