@@ -4,14 +4,10 @@
     require_once "includes/header.php";
     require_once "../includes/logic/summaryReservations.php";
     require_once "../includes/logic/session.php";
-    require_once "sql/countReservations.php";
 ?>
     <section class="reservation-display">
         <div class="admin-title-container">
             <h3>Overzicht reserveringen</h3>
-            <button class="add">
-                <a href="delete.php">Prullenbak (<?= $delete;?>)</a>
-            </button>
             <button class="add">
                 <a href="reservation.php">Toevoegen</a>
             </button>

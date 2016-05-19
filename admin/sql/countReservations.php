@@ -70,11 +70,4 @@
             break;
     }
 
-//Total of the reservations for the next Saturday
-$sqlDelete = mysqli_query($conn, "  SELECT COUNT(*) AS numberDelete
-                                       FROM `han_reservations`
-                                       WHERE `res_status` = 0");
-$numDelete = mysqli_fetch_array($sqlDelete);
-$delete = $numDelete['numberDelete'];
-
 
