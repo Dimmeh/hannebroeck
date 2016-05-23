@@ -13,7 +13,7 @@
             <?php if($result->num_rows> 0):
                 while($row = $result->fetch_assoc()):
             ?>
-            <h3>Reservering # <?= $row['res_id'];?> | <?= $row['res_name']?></h3>
+            <h3>Reservering # <?= $row['res_id'];?> | <?= htmlentities($row['res_name']);?></h3>
             <button class="add">
                 <a href="reservation.php">Toevoegen</a>
             </button>
@@ -34,15 +34,15 @@
                 <table class="detail-name">
                     <tr>
                         <td>Naam:</td>
-                        <td><?= $row['res_name'];?></td>
+                        <td><?= htmlentities($row['res_name']);?></td>
                     </tr>
                     <tr>
                         <td>E-mail:</td>
-                        <td><?= $row['res_email'];?></td>
+                        <td><?= htmlentities($row['res_email']);?></td>
                     </tr>
                     <tr>
                         <td>Telefoon:</td>
-                        <td><?= $row['res_phone'];?></td>
+                        <td><?= htmlentities($row['res_phone']);?></td>
                     </tr>
                 </table>
             </div>

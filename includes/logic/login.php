@@ -10,7 +10,7 @@
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
         $usernameLogin = $_POST['username'];
-        $passwordLogin = $_POST['password'];
+        $passwordLogin = md5($_POST['password']);
 
         $sql = "SELECT *
                 FROM han_users

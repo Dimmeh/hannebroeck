@@ -9,7 +9,7 @@
             while($row = $result->fetch_assoc()):
             ?>
             <form action="edit.php?getId=<?=$row['res_id'];?>" method="post">
-            <h3>Reservering # <?= $row['res_id'];?> | <?= $row['res_name']?></h3><input type="radio" name="id" checked="checked" value="<?= $row['res_id'];?>" /><span class="hiddenRadio"></span>
+            <h3>Reservering # <?= $row['res_id'];?> | <?= htmlentities($row['res_name'])?></h3><input type="radio" name="id" checked="checked" value="<?= $row['res_id'];?>" /><span class="hiddenRadio"></span>
             <button class="add">
                 <a href="reservation.php">Toevoegen</a>
             </button>
@@ -22,15 +22,15 @@
                 <table class="detail-name">
                     <tr>
                         <td><label for="name">Naam:</label></td>
-                        <td><input type="text" name="name" value="<?= $row['res_name'];?>"/></td>
+                        <td><input type="text" name="name" value="<?= htmlentities($row['res_name']);?>"/></td>
                     </tr>
                     <tr>
                         <td><label for="email">E-mail:</label></td>
-                        <td><input type="email" name="email" value="<?= $row['res_email'];?>"></td>
+                        <td><input type="email" name="email" value="<?= htmlentities($row['res_email']);?>"></td>
                     </tr>
                     <tr>
                         <td><label for="phone">Telefoon:</label></td>
-                        <td><input type="phone" name="phone" value="<?= $row['res_phone'];?>"></td>
+                        <td><input type="phone" name="phone" value="<?= htmlentities($row['res_phone']);?>"></td>
                     </tr>
                 </table>
             </div>

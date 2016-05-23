@@ -28,7 +28,7 @@
                     ?>
                     <tr>
                         <td><?= $row['res_id']; ?></td>
-                        <td><?= $row['res_name'] ;?></td>
+                        <td><?= htmlentities($row['res_name']) ;?></td>
                         <td><?= date('d-m-Y', strtotime($row['res_date']));?></td>
                         <td><?= $row['res_time'] ;?></td>
                         <td><a href="details.php?getId=<?= $row['res_id']; ?>">Meer details</a></td>
